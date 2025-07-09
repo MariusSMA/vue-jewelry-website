@@ -6,7 +6,20 @@
 				Popular accessories
 				<span class="gradient">.</span>
 			</h2>
-			<div class="accessories-cards">
+
+			<!-- Loading state -->
+			<div v-if="loading" class="loading">
+				<p>Loading accessories...</p>
+			</div>
+
+			<!-- Error state -->
+			<div v-else-if="error" class="error">
+				<p>Error loading accessories: {{ error }}</p>
+				<button @click="fetchProducts">Try Again</button>
+			</div>
+
+			<!-- Products display -->
+			<div v-else class="accessories-cards">
 				<div class="accessories-card-row">
 					<div
 						class="accessories-card"
@@ -20,7 +33,11 @@
 							<p class="accessories-card-title">{{ product.name }}</p>
 							<p class="accessories-card-price">
 								<span class="gradient">£</span>
-								{{ product.price.toFixed(2) }}
+								{{
+									typeof product.price === "number"
+										? product.price.toFixed(2)
+										: product.price
+								}}
 							</p>
 						</router-link>
 						<button
@@ -44,7 +61,11 @@
 							<p class="accessories-card-title">{{ product.name }}</p>
 							<p class="accessories-card-price">
 								<span class="gradient">£</span>
-								{{ product.price.toFixed(2) }}
+								{{
+									typeof product.price === "number"
+										? product.price.toFixed(2)
+										: product.price
+								}}
 							</p>
 						</router-link>
 						<button
@@ -61,47 +82,68 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import { useStore } from "vuex"; // Assuming you're using Vuex for cart management
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
+import { productService } from "../services/productService";
 
 export default {
 	name: "AccessoriesComponent",
 	setup() {
-		const store = useStore(); // Get the Vuex store instance
-		const products = ref([
-			{
-				id: 1,
-				name: "Dream Earrings",
-				price: 2500,
-				imageUrl: require("@/assets/images/earrings.png"),
-			},
-			{
-				id: 2,
-				name: "Dream Necklace",
-				price: 12500,
-				imageUrl: require("@/assets/images/necklace.png"),
-			},
-			{
-				id: 3,
-				name: "Panthère Ring",
-				price: 8500,
-				imageUrl: require("@/assets/images/ring.png"),
-			},
-			{
-				id: 4,
-				name: "Love Bracelet",
-				price: 5000,
-				imageUrl: require("@/assets/images/bracelet.png"),
-			},
-		]);
+		const store = useStore();
+		const loading = ref(true);
+		const error = ref(null);
+		const allProducts = ref([]);
+
+		// Get products from store if they're already loaded, otherwise fetch them
+		const products = computed(() => {
+			const storeProducts = store.getters.allProducts;
+			if (storeProducts && storeProducts.length > 0) {
+				return storeProducts.slice(0, 4);
+			}
+			return allProducts.value.slice(0, 4);
+		});
+
+		const fetchProducts = async () => {
+			try {
+				loading.value = true;
+				error.value = null;
+
+				// Check if products are already in store
+				const storeProducts = store.getters.allProducts;
+				if (storeProducts && storeProducts.length > 0) {
+					allProducts.value = storeProducts;
+					loading.value = false;
+					return;
+				}
+
+				// Fetch from Firebase if not in store
+				const fetchedProducts = await productService.getAllProducts();
+				allProducts.value = fetchedProducts;
+
+				// Store in Vuex for other components
+				store.dispatch("setProducts", fetchedProducts);
+			} catch (err) {
+				console.error("Error fetching products:", err);
+				error.value = err.message;
+			} finally {
+				loading.value = false;
+			}
+		};
 
 		const handleAddToCart = product => {
 			store.dispatch("addToCart", product);
 		};
 
+		onMounted(() => {
+			fetchProducts();
+		});
+
 		return {
 			products,
+			loading,
+			error,
 			handleAddToCart,
+			fetchProducts,
 		};
 	},
 };

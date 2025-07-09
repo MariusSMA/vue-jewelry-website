@@ -1,9 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store"; // Import your Vuex store
+import store from "./store";
 
-createApp(App)
-	.use(router)
-	.use(store) // Register the Vuex store
-	.mount("#app");
+store.dispatch("initializeAuth").then(() => {
+	const app = createApp(App);
+	app.use(router).use(store).mount("#app");
+});

@@ -1,14 +1,22 @@
 import { createStore } from "vuex";
+import { auth } from "./firebase";
+import {
+	signInWithEmailAndPassword,
+	createUserWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged,
+} from "firebase/auth";
 
 const store = createStore({
 	state: {
 		cart: {
-			items: [], // Initialize cart items as an empty array
+			items: [],
 		},
 		auth: {
 			isLoggedIn: false,
+			user: null,
 		},
-		// Other state properties if needed
+		products: [],
 	},
 	mutations: {
 		addToCart(state, product) {
@@ -28,7 +36,13 @@ const store = createStore({
 				state.cart.items.splice(index, 1);
 			}
 		},
-		// Other mutations if needed
+		setUser(state, user) {
+			state.auth.user = user;
+			state.auth.isLoggedIn = !!user;
+		},
+		setProducts(state, products) {
+			state.products = products;
+		},
 	},
 	actions: {
 		addToCart({ commit }, product) {
@@ -37,10 +51,60 @@ const store = createStore({
 		removeFromCart({ commit }, productId) {
 			commit("removeFromCart", productId);
 		},
-		// Other actions if needed
+		async login({ commit }, { email, password }) {
+			try {
+				const userCredential = await signInWithEmailAndPassword(
+					auth,
+					email,
+					password
+				);
+				commit("setUser", userCredential.user);
+				return { success: true };
+			} catch (error) {
+				return { success: false, error: error.message };
+			}
+		},
+		async register({ commit }, { email, password }) {
+			try {
+				const userCredential = await createUserWithEmailAndPassword(
+					auth,
+					email,
+					password
+				);
+				commit("setUser", userCredential.user);
+				return { success: true };
+			} catch (error) {
+				return { success: false, error: error.message };
+			}
+		},
+		async logout({ commit }) {
+			try {
+				await signOut(auth);
+				commit("setUser", null);
+				return { success: true };
+			} catch (error) {
+				return { success: false, error: error.message };
+			}
+		},
+		initializeAuth({ commit }) {
+			return new Promise(resolve => {
+				onAuthStateChanged(auth, user => {
+					commit("setUser", user);
+					resolve(user);
+				});
+			});
+		},
+		setProducts({ commit }, products) {
+			commit("setProducts", products);
+		},
 	},
 	getters: {
-		// Your getters
+		isAuthenticated: state => state.auth.isLoggedIn,
+		currentUser: state => state.auth.user,
+		cartItemCount: state => {
+			return state.cart.items.reduce((acc, item) => acc + item.quantity, 0);
+		},
+		allProducts: state => state.products,
 	},
 });
 

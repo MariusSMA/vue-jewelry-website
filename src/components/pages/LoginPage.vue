@@ -4,15 +4,22 @@
 			<p>Success!</p>
 		</div>
 		<div v-if="showErrorMessage" class="error-message">
-			<p>Error: Invalid username or password.</p>
+			<p>{{ errorMessage }}</p>
 		</div>
 		<div v-if="showLogin">
 			<!-- Login Form -->
 			<form @submit.prevent="handleLogin">
 				<h2>Login</h2>
-				<input type="text" placeholder="Username" v-model="username" />
-				<input type="password" placeholder="Password" v-model="password" />
-				<button type="submit">Login</button>
+				<input type="email" placeholder="Email" v-model="email" required />
+				<input
+					type="password"
+					placeholder="Password"
+					v-model="password"
+					required
+				/>
+				<button type="submit" :disabled="loading">
+					{{ loading ? "Logging in..." : "Login" }}
+				</button>
 				<p>
 					Don't have an account?
 					<span @click="toggleForm" style="cursor: pointer">Register</span>
@@ -23,9 +30,16 @@
 			<!-- Registration Form -->
 			<form @submit.prevent="handleRegister">
 				<h2>Register</h2>
-				<input type="text" placeholder="Username" v-model="username" />
-				<input type="password" placeholder="Password" v-model="password" />
-				<button type="submit">Register</button>
+				<input type="email" placeholder="Email" v-model="email" required />
+				<input
+					type="password"
+					placeholder="Password"
+					v-model="password"
+					required
+				/>
+				<button type="submit" :disabled="loading">
+					{{ loading ? "Registering..." : "Register" }}
+				</button>
 				<p>
 					Already have an account?
 					<span @click="toggleForm" style="cursor: pointer">Login</span>
@@ -38,85 +52,98 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
 	name: "LoginPage",
 	setup() {
 		const router = useRouter();
-		const username = ref("");
+		const store = useStore();
+		const email = ref("");
 		const password = ref("");
 		const showLogin = ref(true);
 		const showSuccessMessage = ref(false);
 		const showErrorMessage = ref(false);
-		const users = ref({
-			user1: {
-				username: "user1",
-				password: "password1",
-			},
-			user2: {
-				username: "user2",
-				password: "password2",
-			},
-		});
+		const errorMessage = ref("");
+		const loading = ref(false);
 
-		const handleLogin = () => {
-			const enteredUsername = username.value;
-			const enteredPassword = password.value;
+		const handleLogin = async () => {
+			loading.value = true;
+			try {
+				const result = await store.dispatch("login", {
+					email: email.value,
+					password: password.value,
+				});
 
-			const user = users.value[enteredUsername];
-			if (user && user.password === enteredPassword) {
-				// Set login status in a higher-level component (e.g., App.vue)
-				// You'll need to implement this logic in your App.vue
-				// For example:
-				// this.$emit('login', enteredUsername);
-				router.push("/"); // Redirect to the home page
-				showSuccessMessage.value = true;
-				setTimeout(() => {
-					showSuccessMessage.value = false;
-				}, 1000);
-			} else {
+				if (result.success) {
+					showSuccessMessage.value = true;
+					setTimeout(() => {
+						router.push("/");
+					}, 1000);
+				} else {
+					errorMessage.value = result.error;
+					showErrorMessage.value = true;
+					setTimeout(() => {
+						showErrorMessage.value = false;
+					}, 3000);
+				}
+			} catch (error) {
+				errorMessage.value = "Login failed. Please try again.";
 				showErrorMessage.value = true;
 				setTimeout(() => {
 					showErrorMessage.value = false;
-				}, 1000);
+				}, 3000);
+			} finally {
+				loading.value = false;
 			}
 		};
 
-		const handleRegister = () => {
-			const enteredUsername = username.value;
-			const enteredPassword = password.value;
+		const handleRegister = async () => {
+			loading.value = true;
+			try {
+				const result = await store.dispatch("register", {
+					email: email.value,
+					password: password.value,
+				});
 
-			if (users.value[enteredUsername]) {
+				if (result.success) {
+					showSuccessMessage.value = true;
+					setTimeout(() => {
+						router.push("/");
+					}, 1000);
+				} else {
+					errorMessage.value = result.error;
+					showErrorMessage.value = true;
+					setTimeout(() => {
+						showErrorMessage.value = false;
+					}, 3000);
+				}
+			} catch (error) {
+				errorMessage.value = "Registration failed. Please try again.";
 				showErrorMessage.value = true;
 				setTimeout(() => {
 					showErrorMessage.value = false;
-				}, 1000);
-			} else {
-				users.value = {
-					...users.value,
-					[enteredUsername]: {
-						username: enteredUsername,
-						password: enteredPassword,
-					},
-				};
-				showSuccessMessage.value = true;
-				setTimeout(() => {
-					showSuccessMessage.value = false;
-				}, 1000);
+				}, 3000);
+			} finally {
+				loading.value = false;
 			}
 		};
 
 		const toggleForm = () => {
 			showLogin.value = !showLogin.value;
+			email.value = "";
+			password.value = "";
+			showErrorMessage.value = false;
 		};
 
 		return {
-			username,
+			email,
 			password,
 			showLogin,
 			showSuccessMessage,
 			showErrorMessage,
-			users,
+			errorMessage,
+			loading,
 			handleLogin,
 			handleRegister,
 			toggleForm,
@@ -124,7 +151,3 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-/* ... your CSS styles ... */
-</style>

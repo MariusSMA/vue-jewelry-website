@@ -36,18 +36,40 @@
 							Catalogue
 						</router-link>
 					</li>
-					<li class="link-item">
-						<router-link
-							:to="isLoggedIn ? '/profile' : '/login'"
-							class="link"
-							@click="toggleLoginDropdown"
-						>
+					<li class="link-item user-dropdown">
+						<div class="user-menu" @click="toggleLoginDropdown">
 							<img
 								src="@/assets/images/user-icon.svg"
 								alt="User Icon"
 								class="user-icon"
 							/>
-						</router-link>
+						</div>
+
+						<!-- User Dropdown Menu -->
+						<div v-if="showLoginDropdown" class="dropdown-menu">
+							<div v-if="isLoggedIn">
+								<p class="user-email">{{ currentUser?.email }}</p>
+								<router-link
+									to="/profile"
+									class="dropdown-link"
+									@click="closeDropdown"
+								>
+									Profile
+								</router-link>
+								<button @click="handleLogout" class="logout-button">
+									Logout
+								</button>
+							</div>
+							<div v-else>
+								<router-link
+									to="/login"
+									class="dropdown-link"
+									@click="closeDropdown"
+								>
+									Login
+								</router-link>
+							</div>
+						</div>
 					</li>
 					<li class="link-item">
 						<router-link to="/shopping-cart" class="link" @click="scrollToTop">
@@ -100,59 +122,88 @@
 
 <script>
 import { ref, computed, onMounted } from "vue";
-import { useStore } from "vuex"; // Assuming you're using Vuex for cart management
-import data from "../assets/data/products.json"; // Import your JSON file
-import { useRouter } from "vue-router"; // Import useRouter
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { productService } from "../services/productService";
 
 export default {
 	name: "HeaderComponent",
 	setup() {
-		const store = useStore(); // Get the Vuex store instance
-		const cartItems = computed(() => store.state.cart.items); // Get cart items from Vuex
+		const store = useStore();
+		const router = useRouter();
+		const cartItems = computed(() => store.state.cart.items);
 		const searchResultsRef = ref(null);
 		const searchTerm = ref("");
 		const searchResults = ref([]);
-		const isLoggedIn = computed(() => store.state.auth.isLoggedIn);
-		const username = ref("");
+		const isLoggedIn = computed(() => store.getters.isAuthenticated);
+		const currentUser = computed(() => store.getters.currentUser);
 		const totalQuantity = computed(() =>
 			cartItems.value.reduce((acc, item) => acc + item.quantity, 0)
 		);
 		const showLoginDropdown = ref(false);
 		const showSearchResults = ref(false);
-		const router = useRouter(); // Get the router instance
+		const allProducts = ref([]);
+
+		// Load products for search functionality
+		const loadProductsForSearch = async () => {
+			try {
+				// Check if products are already in store
+				const storeProducts = store.getters.allProducts;
+				if (storeProducts && storeProducts.length > 0) {
+					allProducts.value = storeProducts;
+					return;
+				}
+
+				// Fetch from Firebase if not in store
+				const products = await productService.getAllProducts();
+				allProducts.value = products;
+				store.dispatch("setProducts", products);
+			} catch (error) {
+				console.error("Error loading products for search:", error);
+			}
+		};
 
 		onMounted(() => {
-			window.scrollTo(0, 0); // Scroll to the top of the page
+			window.scrollTo(0, 0);
+			loadProductsForSearch();
 		});
 
 		const handleSearchChange = event => {
 			searchTerm.value = event.target.value;
-			// Filter products as the user types, considering case sensitivity
-			const foundProducts = data.filter(
+
+			if (searchTerm.value.trim() === "") {
+				searchResults.value = [];
+				showSearchResults.value = false;
+				return;
+			}
+
+			// Search through Firebase products
+			const foundProducts = allProducts.value.filter(
 				product =>
 					product.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
 					product.description
-						.toLowerCase()
+						?.toLowerCase()
+						.includes(searchTerm.value.toLowerCase()) ||
+					product.category
+						?.toLowerCase()
 						.includes(searchTerm.value.toLowerCase())
 			);
 
-			// Update search results state
 			searchResults.value = foundProducts;
-			showSearchResults.value = searchTerm.value.trim() !== "";
+			showSearchResults.value = true;
 		};
 
 		const handleSearchSubmit = () => {
-			// Filter products as the user types, considering case sensitivity
-			const foundProducts = data.filter(
-				product =>
-					product.name.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
-					product.description
-						.toLowerCase()
-						.includes(searchTerm.value.toLowerCase())
-			);
+			if (searchTerm.value.trim() === "") return;
 
-			// Update search results state
-			searchResults.value = foundProducts;
+			// Navigate to catalogue with search term
+			router.push({
+				path: "/catalogue",
+				query: { search: searchTerm.value },
+			});
+
+			// Close search results
+			handleCloseSearchResults();
 		};
 
 		const handleCloseSearchResults = () => {
@@ -162,8 +213,8 @@ export default {
 		};
 
 		const handleProductClick = productId => {
-			scrollToTop;
-			handleCloseSearchResults;
+			scrollToTop();
+			handleCloseSearchResults();
 			router.push(`/products/${productId}`);
 		};
 
@@ -171,10 +222,26 @@ export default {
 			showLoginDropdown.value = !showLoginDropdown.value;
 		};
 
+		const closeDropdown = () => {
+			showLoginDropdown.value = false;
+		};
+
+		const handleLogout = async () => {
+			try {
+				const result = await store.dispatch("logout");
+				if (result.success) {
+					closeDropdown();
+					router.push("/");
+				}
+			} catch (error) {
+				console.error("Logout failed:", error);
+			}
+		};
+
 		const scrollToTop = () => {
 			window.scrollTo({
 				top: 0,
-				behavior: "smooth", // Smooth scrolling
+				behavior: "smooth",
 			});
 		};
 
@@ -182,7 +249,7 @@ export default {
 			return store.state.cart.items.reduce(
 				(acc, item) => acc + item.quantity,
 				0
-			); // Get the cart item count from the Vuex store
+			);
 		});
 
 		return {
@@ -191,7 +258,7 @@ export default {
 			searchTerm,
 			searchResults,
 			isLoggedIn,
-			username,
+			currentUser,
 			totalQuantity,
 			showLoginDropdown,
 			showSearchResults,
@@ -199,6 +266,8 @@ export default {
 			handleSearchSubmit,
 			handleCloseSearchResults,
 			toggleLoginDropdown,
+			closeDropdown,
+			handleLogout,
 			scrollToTop,
 			cartItemCount,
 			router,

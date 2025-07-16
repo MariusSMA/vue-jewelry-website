@@ -1,162 +1,402 @@
 [
 	{
-		"id": 1,
-		"name": "DreamEarrings",
-		"price": 2500,
-		"imageUrl": "earrings.png",
+		"id": "dream-earrings",
+		"name": "Dream Earrings",
+		"category": "earrings",
 		"description": "Beautiful earrings with intricate details.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
-	},
-	{
-		"id": 2,
-		"name": "DreamNecklace",
-		"price": 12500,
-		"imageUrl": "necklace.png",
-		"description": "Elegant necklace with a stunning pendant.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
-	},
-	{
-		"id": 3,
-		"name": "PanthereRing",
-		"price": 8500,
-		"imageUrl": "ring.png",
-		"description": "World class ring with a beautiful presence.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
-	},
-	{
-		"id": 4,
-		"name": "LoveBracelet",
-		"price": 5000,
-		"imageUrl": "bracelet.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
-	},
-	{
-		"id": 5,
-		"name": "TrinityBracelet",
 		"price": 2500,
-		"imageUrl": "bracelet-1.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings.png",
+		"specifications": {
+			"material": "Yellow gold",
+			"gemstone": ["Diamond", "Mother of Pearl"],
+			"size": "N/A",
+			"weight": "4.54g",
+			"dimensions": {
+				"length": "13mm",
+				"width": "14mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 50
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "fashion", "accessories"]
+		}
 	},
 	{
-		"id": 6,
-		"name": "PanthereBracelet",
+		"id": "dream-necklace",
+		"name": "Dream Necklace",
+		"category": "necklaces",
+		"description": "Elegant necklace with a stunning pendant.",
+		"price": 12500,
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace.png",
+		"specifications": {
+			"material": "White gold",
+			"gemstone": ["Diamond"],
+			"size": "45cm",
+			"weight": "8.2g",
+			"dimensions": {
+				"length": "45cm",
+				"width": "2mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 25
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "elegant", "pendant"]
+		}
+	},
+	{
+		"id": "panthere-ring",
+		"name": "Panthere Ring",
+		"category": "rings",
+		"description": "World class ring with a beautiful presence.",
+		"price": 8500,
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring.png",
+		"specifications": {
+			"material": "Rose gold",
+			"gemstone": ["Onyx", "Emerald"],
+			"size": "52",
+			"weight": "6.1g",
+			"dimensions": {
+				"length": "15mm",
+				"width": "12mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 15
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "animal", "statement"]
+		}
+	},
+	{
+		"id": "love-bracelet",
+		"name": "Love Bracelet",
+		"category": "bracelets",
+		"description": "Feel the love now more than ever.",
+		"price": 5000,
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet.png",
+		"specifications": {
+			"material": "Yellow gold",
+			"gemstone": ["N/A"],
+			"size": "17cm",
+			"weight": "32.5g",
+			"dimensions": {
+				"length": "17cm",
+				"width": "6mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 30
+			},
+			"madeIn": "Switzerland",
+			"tags": ["luxury", "love", "classic"]
+		}
+	},
+	{
+		"id": "trinity-bracelet",
+		"name": "Trinity Bracelet",
+		"category": "bracelets",
+		"description": "Feel the love now more than ever.",
+		"price": 2500,
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet-1.png",
+		"specifications": {
+			"material": "Three-gold (white, yellow, rose)",
+			"gemstone": ["N/A"],
+			"size": "16cm",
+			"weight": "15.8g",
+			"dimensions": {
+				"length": "16cm",
+				"width": "4mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 20
+			},
+			"madeIn": "France",
+			"tags": ["luxury", "trinity", "elegant"]
+		}
+	},
+	{
+		"id": "panthere-bracelet",
+		"name": "Panthere Bracelet",
+		"category": "bracelets",
+		"description": "Feel the love now more than ever.",
 		"price": 3500,
-		"imageUrl": "bracelet-2.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet-2.png",
+		"specifications": {
+			"material": "Yellow gold",
+			"gemstone": ["Onyx", "Emerald"],
+			"size": "18cm",
+			"weight": "28.3g",
+			"dimensions": {
+				"length": "18cm",
+				"width": "8mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 12
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "animal", "statement"]
+		}
 	},
 	{
-		"id": 7,
-		"name": "ClashBracelet",
+		"id": "clash-bracelet",
+		"name": "Clash Bracelet",
+		"category": "bracelets",
+		"description": "Feel the love now more than ever.",
 		"price": 7500,
-		"imageUrl": "bracelet-3.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet-3.png",
+		"specifications": {
+			"material": "Rose gold",
+			"gemstone": ["Diamond"],
+			"size": "17cm",
+			"weight": "45.2g",
+			"dimensions": {
+				"length": "17cm",
+				"width": "10mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 8
+			},
+			"madeIn": "France",
+			"tags": ["luxury", "diamond", "bold"]
+		}
 	},
 	{
-		"id": 8,
-		"name": "AgrafeNecklace",
+		"id": "agrafe-necklace",
+		"name": "Agrafe Necklace",
+		"category": "necklaces",
+		"description": "Feel the love now more than ever.",
 		"price": 9500,
-		"imageUrl": "necklace-1.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace-1.png",
+		"specifications": {
+			"material": "White gold",
+			"gemstone": ["Diamond"],
+			"size": "40cm",
+			"weight": "12.1g",
+			"dimensions": {
+				"length": "40cm",
+				"width": "3mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 18
+			},
+			"madeIn": "France",
+			"tags": ["luxury", "diamond", "elegant"]
+		}
 	},
 	{
-		"id": 9,
-		"name": "AmuletteNecklace",
+		"id": "amulette-necklace",
+		"name": "Amulette Necklace",
+		"category": "necklaces",
+		"description": "Feel the love now more than ever.",
 		"price": 1500,
-		"imageUrl": "necklace-2.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace-2.png",
+		"specifications": {
+			"material": "Yellow gold",
+			"gemstone": ["Mother of Pearl"],
+			"size": "42cm",
+			"weight": "5.8g",
+			"dimensions": {
+				"length": "42cm",
+				"width": "1mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 35
+			},
+			"madeIn": "France",
+			"tags": ["luxury", "mother-of-pearl", "delicate"]
+		}
 	},
 	{
-		"id": 10,
-		"name": "CactusNecklace",
+		"id": "cactus-necklace",
+		"name": "Cactus Necklace",
+		"category": "necklaces",
+		"description": "Feel the love now more than ever.",
 		"price": 15000,
-		"imageUrl": "necklace-3.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace-3.png",
+		"specifications": {
+			"material": "Rose gold",
+			"gemstone": ["Malachite", "Diamond"],
+			"size": "50cm",
+			"weight": "18.7g",
+			"dimensions": {
+				"length": "50cm",
+				"width": "4mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 5
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "unique", "nature"]
+		}
 	},
 	{
-		"id": 11,
-		"name": "DreamEarrings",
+		"id": "dream-earrings-2",
+		"name": "Dream Earrings",
+		"category": "earrings",
+		"description": "Feel the love now more than ever.",
 		"price": 20000,
-		"imageUrl": "earrings-1.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings-1.png",
+		"specifications": {
+			"material": "White gold",
+			"gemstone": ["Diamond", "Pearl"],
+			"size": "N/A",
+			"weight": "8.9g",
+			"dimensions": {
+				"length": "25mm",
+				"width": "8mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 10
+			},
+			"madeIn": "France",
+			"tags": ["luxury", "diamond", "pearl"]
+		}
 	},
 	{
-		"id": 12,
-		"name": "SerpentiEarrings",
+		"id": "serpenti-earrings",
+		"name": "Serpenti Earrings",
+		"category": "earrings",
+		"description": "Feel the love now more than ever.",
 		"price": 15000,
-		"imageUrl": "earrings-2.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings-2.png",
+		"specifications": {
+			"material": "Rose gold",
+			"gemstone": ["Malachite", "Diamond"],
+			"size": "N/A",
+			"weight": "6.7g",
+			"dimensions": {
+				"length": "20mm",
+				"width": "6mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 7
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "serpent", "unique"]
+		}
 	},
 	{
-		"id": 13,
-		"name": "B.Zero1Earrings",
+		"id": "bzero1-earrings",
+		"name": "B.Zero1 Earrings",
+		"category": "earrings",
+		"description": "Feel the love now more than ever.",
 		"price": 2000,
-		"imageUrl": "earrings-3.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings-3.png",
+		"specifications": {
+			"material": "Yellow gold",
+			"gemstone": ["N/A"],
+			"size": "N/A",
+			"weight": "3.1g",
+			"dimensions": {
+				"length": "12mm",
+				"width": "5mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 40
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "classic", "minimalist"]
+		}
 	},
 	{
-		"id": 14,
-		"name": "SerpentiRing",
+		"id": "serpenti-ring",
+		"name": "Serpenti Ring",
+		"category": "rings",
+		"description": "Feel the love now more than ever.",
 		"price": 1500,
-		"imageUrl": "ring-1.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring-1.png",
+		"specifications": {
+			"material": "Rose gold",
+			"gemstone": ["Malachite"],
+			"size": "54",
+			"weight": "4.8g",
+			"dimensions": {
+				"length": "12mm",
+				"width": "10mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 22
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "serpent", "unique"]
+		}
 	},
 	{
-		"id": 15,
-		"name": "B.Zero1Ring",
+		"id": "bzero1-ring",
+		"name": "B.Zero1 Ring",
+		"category": "rings",
+		"description": "Feel the love now more than ever.",
 		"price": 1000,
-		"imageUrl": "ring-2.png",
-		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring-2.png",
+		"specifications": {
+			"material": "White gold",
+			"gemstone": ["N/A"],
+			"size": "50",
+			"weight": "3.2g",
+			"dimensions": {
+				"length": "8mm",
+				"width": "8mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 55
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "classic", "minimalist"]
+		}
 	},
 	{
-		"id": 16,
-		"name": "BvulgariRing",
-		"price": 3500,
-		"imageUrl": "ring-3.png",
+		"id": "bvlgari-ring",
+		"name": "Bvlgari Ring",
+		"category": "rings",
 		"description": "Feel the love now more than ever.",
-		"scopes": [],
-		"apiResources": [],
-		"proxies": []
+		"price": 3500,
+		"currency": "USD",
+		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring-3.png",
+		"specifications": {
+			"material": "Yellow gold",
+			"gemstone": ["Onyx"],
+			"size": "56",
+			"weight": "5.5g",
+			"dimensions": {
+				"length": "14mm",
+				"width": "12mm"
+			},
+			"availability": {
+				"inStock": true,
+				"totalStock": 13
+			},
+			"madeIn": "Italy",
+			"tags": ["luxury", "brand", "statement"]
+		}
 	}
 ]

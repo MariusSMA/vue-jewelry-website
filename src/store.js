@@ -6,6 +6,7 @@ import {
 	signOut,
 	onAuthStateChanged,
 } from "firebase/auth";
+import { userService } from "./services/userService";
 
 const store = createStore({
 	state: {
@@ -15,6 +16,7 @@ const store = createStore({
 		auth: {
 			isLoggedIn: false,
 			user: null,
+			isAdmin: false,
 		},
 		products: [],
 	},
@@ -40,6 +42,9 @@ const store = createStore({
 			state.auth.user = user;
 			state.auth.isLoggedIn = !!user;
 		},
+		setUserAdmin(state, isAdmin) {
+			state.auth.isAdmin = isAdmin;
+		},
 		setProducts(state, products) {
 			state.products = products;
 		},
@@ -58,12 +63,19 @@ const store = createStore({
 					email,
 					password
 				);
-				commit("setUser", userCredential.user);
+				const user = userCredential.user;
+
+				// Check if user is admin
+				const isAdmin = await userService.isUserAdmin(user.uid);
+
+				commit("setUser", user);
+				commit("setUserAdmin", isAdmin);
 				return { success: true };
 			} catch (error) {
 				return { success: false, error: error.message };
 			}
 		},
+
 		async register({ commit }, { email, password }) {
 			try {
 				const userCredential = await createUserWithEmailAndPassword(
@@ -71,7 +83,19 @@ const store = createStore({
 					email,
 					password
 				);
-				commit("setUser", userCredential.user);
+				const user = userCredential.user;
+
+				// Create user profile in Firestore
+				await userService.createUserProfile(user.uid, {
+					email: user.email,
+					displayName: user.displayName || null,
+				});
+
+				// Check if user is admin (should be false for new users)
+				const isAdmin = await userService.isUserAdmin(user.uid);
+
+				commit("setUser", user);
+				commit("setUserAdmin", isAdmin);
 				return { success: true };
 			} catch (error) {
 				return { success: false, error: error.message };
@@ -81,6 +105,7 @@ const store = createStore({
 			try {
 				await signOut(auth);
 				commit("setUser", null);
+				commit("setUserAdmin", false);
 				return { success: true };
 			} catch (error) {
 				return { success: false, error: error.message };
@@ -88,8 +113,15 @@ const store = createStore({
 		},
 		initializeAuth({ commit }) {
 			return new Promise(resolve => {
-				onAuthStateChanged(auth, user => {
+				onAuthStateChanged(auth, async user => {
 					commit("setUser", user);
+					if (user) {
+						// Check if user is admin
+						const isAdmin = await userService.isUserAdmin(user.uid);
+						commit("setUserAdmin", isAdmin);
+					} else {
+						commit("setUserAdmin", false);
+					}
 					resolve(user);
 				});
 			});
@@ -97,10 +129,24 @@ const store = createStore({
 		setProducts({ commit }, products) {
 			commit("setProducts", products);
 		},
+		async makeUserAdmin({ commit }, userId) {
+			try {
+				await userService.updateUserRole(userId, "admin");
+				// If it's the current user, update the store
+				const currentUser = auth.currentUser;
+				if (currentUser && currentUser.uid === userId) {
+					commit("setUserAdmin", true);
+				}
+				return { success: true };
+			} catch (error) {
+				return { success: false, error: error.message };
+			}
+		},
 	},
 	getters: {
 		isAuthenticated: state => state.auth.isLoggedIn,
 		currentUser: state => state.auth.user,
+		isAdmin: state => state.auth.isAdmin,
 		cartItemCount: state => {
 			return state.cart.items.reduce((acc, item) => acc + item.quantity, 0);
 		},

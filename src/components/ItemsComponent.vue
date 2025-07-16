@@ -107,7 +107,6 @@ export default {
 
 				// Fetch all products from Firebase
 				const products = await productService.getAllProducts();
-				console.log("Fetched products:", products); // Debug log
 
 				// Store products in Vuex for other components to use
 				store.dispatch("setProducts", products);
@@ -115,7 +114,6 @@ export default {
 				// Categorize products
 				categorizeProducts(products);
 			} catch (err) {
-				console.error("Error fetching products:", err);
 				error.value = err.message;
 			} finally {
 				loading.value = false;
@@ -140,13 +138,11 @@ export default {
 				p => p.category === "ring" || p.name.toLowerCase().includes("ring")
 			);
 
-			// Assign products to categories (limit to 3 per category for display)
+			// Assign products to categories
 			categories.value[0].products = bracelets.slice(0, 3);
 			categories.value[1].products = necklaces.slice(0, 3);
 			categories.value[2].products = earrings.slice(0, 3);
 			categories.value[3].products = rings.slice(0, 3);
-
-			console.log("Categorized products:", categories.value); // Debug log
 		};
 
 		const handleAddToCart = product => {

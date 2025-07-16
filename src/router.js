@@ -9,6 +9,8 @@ import NewsletterPage from "./components/pages/NewsletterPage.vue";
 import ProductPage from "./components/pages/ProductPage.vue";
 import ProfilePage from "./components/pages/ProfilePage.vue";
 import LoginPage from "./components/pages/LoginPage.vue";
+import AdminPage from "./components/pages/AdminPage.vue";
+import store from "./store";
 
 const routes = [
 	{ path: "/", component: HomePage },
@@ -23,7 +25,12 @@ const routes = [
 	{
 		path: "/profile",
 		component: ProfilePage,
-		meta: { requiresAuth: true }, // Add meta for authentication
+		meta: { requiresAuth: true },
+	},
+	{
+		path: "/admin",
+		component: AdminPage,
+		meta: { requiresAuth: true, requiresAdmin: true },
 	},
 ];
 
@@ -32,10 +39,17 @@ const router = createRouter({
 	routes,
 });
 
-// Authentication guard
+// Authentication guard using Vuex
 router.beforeEach((to, from, next) => {
-	if (to.meta.requiresAuth && !localStorage.getItem("isLoggedIn")) {
+	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+	const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+	const isAuthenticated = store.getters.isAuthenticated;
+	const isAdmin = store.getters.isAdmin;
+
+	if (requiresAuth && !isAuthenticated) {
 		next("/login");
+	} else if (requiresAdmin && !isAdmin) {
+		next("/profile");
 	} else {
 		next();
 	}

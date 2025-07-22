@@ -1,20 +1,36 @@
 [
 	{
 		"id": "dream-earrings",
-		"name": "Dream Earrings",
+		"sku": "DE-001",
+		"name": {
+			"en": "Dream Earrings"
+		},
 		"category": "earrings",
-		"description": "Beautiful earrings with intricate details.",
-		"price": 2500,
-		"currency": "USD",
+		"description": {
+			"en": "Beautiful earrings with intricate details."
+		},
+		"pricing": {
+			"price": 2500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings.png",
+		"featured": true,
 		"specifications": {
 			"material": "Yellow gold",
 			"gemstone": ["Diamond", "Mother of Pearl"],
-			"size": "N/A",
-			"weight": "4.54g",
+			"weight": {
+				"metric": { "value": 4.54, "unit": "g" },
+				"imperial": { "value": 0.16, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "13mm",
-				"width": "14mm"
+				"metric": {
+					"length": { "value": 13, "unit": "mm" },
+					"width": { "value": 14, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.51, "unit": "in" },
+					"width": { "value": 0.55, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -22,24 +38,92 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "fashion", "accessories"]
-		}
+		},
+		"variations": [
+			{
+				"id": "dream-earrings-gold",
+				"name": {
+					"en": "Dream Earrings - Gold"
+				},
+				"color": "Gold",
+				"material": "Yellow gold",
+				"priceModifier": 0,
+				"stock": 30,
+				"sku": "DE-001-GLD",
+				"weight": {
+					"metric": { "value": 4.54, "unit": "g" },
+					"imperial": { "value": 0.16, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 13, "unit": "mm" },
+						"width": { "value": 14, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.51, "unit": "in" },
+						"width": { "value": 0.55, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "dream-earrings-rose-gold",
+				"name": {
+					"en": "Dream Earrings - Rose Gold"
+				},
+				"color": "Rose Gold",
+				"material": "Rose gold",
+				"priceModifier": 200,
+				"stock": 20,
+				"sku": "DE-001-RGD",
+				"weight": {
+					"metric": { "value": 4.68, "unit": "g" },
+					"imperial": { "value": 0.17, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 13, "unit": "mm" },
+						"width": { "value": 14, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.51, "unit": "in" },
+						"width": { "value": 0.55, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "dream-necklace",
-		"name": "Dream Necklace",
+		"sku": "DN-002",
+		"name": {
+			"en": "Dream Necklace"
+		},
 		"category": "necklaces",
-		"description": "Elegant necklace with a stunning pendant.",
-		"price": 12500,
-		"currency": "USD",
+		"description": {
+			"en": "Elegant necklace with a stunning pendant."
+		},
+		"pricing": {
+			"price": 12500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace.png",
+		"featured": true,
 		"specifications": {
 			"material": "White gold",
 			"gemstone": ["Diamond"],
-			"size": "45cm",
-			"weight": "8.2g",
+			"weight": {
+				"metric": { "value": 8.2, "unit": "g" },
+				"imperial": { "value": 0.29, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "45cm",
-				"width": "2mm"
+				"metric": {
+					"length": { "value": 450, "unit": "mm" },
+					"width": { "value": 2, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 17.72, "unit": "in" },
+					"width": { "value": 0.08, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -47,24 +131,90 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "elegant", "pendant"]
-		}
+		},
+		"variations": [
+			{
+				"id": "dream-necklace-45cm",
+				"name": {
+					"en": "Dream Necklace - 45cm"
+				},
+				"size": "45cm",
+				"priceModifier": 0,
+				"stock": 15,
+				"sku": "DN-002-45",
+				"weight": {
+					"metric": { "value": 7.8, "unit": "g" },
+					"imperial": { "value": 0.28, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 450, "unit": "mm" },
+						"width": { "value": 2, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 17.72, "unit": "in" },
+						"width": { "value": 0.08, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "dream-necklace-50cm",
+				"name": {
+					"en": "Dream Necklace - 50cm"
+				},
+				"size": "50cm",
+				"priceModifier": 500,
+				"stock": 10,
+				"sku": "DN-002-50",
+				"weight": {
+					"metric": { "value": 8.2, "unit": "g" },
+					"imperial": { "value": 0.29, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 500, "unit": "mm" },
+						"width": { "value": 2, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 19.69, "unit": "in" },
+						"width": { "value": 0.08, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "panthere-ring",
-		"name": "Panthere Ring",
+		"sku": "PR-003",
+		"name": {
+			"en": "Panthere Ring"
+		},
 		"category": "rings",
-		"description": "World class ring with a beautiful presence.",
-		"price": 8500,
-		"currency": "USD",
+		"description": {
+			"en": "World class ring with a beautiful presence."
+		},
+		"pricing": {
+			"price": 8500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring.png",
+		"featured": false,
 		"specifications": {
 			"material": "Rose gold",
 			"gemstone": ["Onyx", "Emerald"],
-			"size": "52",
-			"weight": "6.1g",
+			"weight": {
+				"metric": { "value": 6.1, "unit": "g" },
+				"imperial": { "value": 0.22, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "15mm",
-				"width": "12mm"
+				"metric": {
+					"length": { "value": 15, "unit": "mm" },
+					"width": { "value": 12, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.59, "unit": "in" },
+					"width": { "value": 0.47, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -72,24 +222,114 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "animal", "statement"]
-		}
+		},
+		"variations": [
+			{
+				"id": "panthere-ring-52",
+				"name": {
+					"en": "Panthere Ring - Size 52"
+				},
+				"size": "52",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "PR-003-52",
+				"weight": {
+					"metric": { "value": 6.0, "unit": "g" },
+					"imperial": { "value": 0.21, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 14.8, "unit": "mm" },
+						"width": { "value": 11.8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.58, "unit": "in" },
+						"width": { "value": 0.46, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "panthere-ring-54",
+				"name": {
+					"en": "Panthere Ring - Size 54"
+				},
+				"size": "54",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "PR-003-54",
+				"weight": {
+					"metric": { "value": 6.1, "unit": "g" },
+					"imperial": { "value": 0.22, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 15.0, "unit": "mm" },
+						"width": { "value": 12.0, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.59, "unit": "in" },
+						"width": { "value": 0.47, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "panthere-ring-56",
+				"name": {
+					"en": "Panthere Ring - Size 56"
+				},
+				"size": "56",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "PR-003-56",
+				"weight": {
+					"metric": { "value": 6.3, "unit": "g" },
+					"imperial": { "value": 0.22, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 15.2, "unit": "mm" },
+						"width": { "value": 12.2, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.6, "unit": "in" },
+						"width": { "value": 0.48, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "love-bracelet",
-		"name": "Love Bracelet",
+		"sku": "LB-004",
+		"name": {
+			"en": "Love Bracelet"
+		},
 		"category": "bracelets",
-		"description": "Feel the love now more than ever.",
-		"price": 5000,
-		"currency": "USD",
+		"description": {
+			"en": "Feel the love now more than ever."
+		},
+		"pricing": {
+			"price": 5000,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet.png",
+		"featured": true,
 		"specifications": {
 			"material": "Yellow gold",
 			"gemstone": ["N/A"],
-			"size": "17cm",
-			"weight": "32.5g",
+			"weight": {
+				"metric": { "value": 32.5, "unit": "g" },
+				"imperial": { "value": 1.15, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "17cm",
-				"width": "6mm"
+				"metric": {
+					"length": { "value": 170, "unit": "mm" },
+					"width": { "value": 6, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 6.69, "unit": "in" },
+					"width": { "value": 0.24, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -97,24 +337,114 @@
 			},
 			"madeIn": "Switzerland",
 			"tags": ["luxury", "love", "classic"]
-		}
+		},
+		"variations": [
+			{
+				"id": "love-bracelet-16",
+				"name": {
+					"en": "Love Bracelet - Size 16"
+				},
+				"size": "16",
+				"priceModifier": 0,
+				"stock": 10,
+				"sku": "LB-004-16",
+				"weight": {
+					"metric": { "value": 31.8, "unit": "g" },
+					"imperial": { "value": 1.12, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 160, "unit": "mm" },
+						"width": { "value": 6, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 6.3, "unit": "in" },
+						"width": { "value": 0.24, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "love-bracelet-17",
+				"name": {
+					"en": "Love Bracelet - Size 17"
+				},
+				"size": "17",
+				"priceModifier": 0,
+				"stock": 10,
+				"sku": "LB-004-17",
+				"weight": {
+					"metric": { "value": 32.5, "unit": "g" },
+					"imperial": { "value": 1.15, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 170, "unit": "mm" },
+						"width": { "value": 6, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 6.69, "unit": "in" },
+						"width": { "value": 0.24, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "love-bracelet-18",
+				"name": {
+					"en": "Love Bracelet - Size 18"
+				},
+				"size": "18",
+				"priceModifier": 0,
+				"stock": 10,
+				"sku": "LB-004-18",
+				"weight": {
+					"metric": { "value": 33.2, "unit": "g" },
+					"imperial": { "value": 1.17, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 180, "unit": "mm" },
+						"width": { "value": 6, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 7.09, "unit": "in" },
+						"width": { "value": 0.24, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "trinity-bracelet",
-		"name": "Trinity Bracelet",
+		"sku": "TB-005",
+		"name": {
+			"en": "Trinity Bracelet"
+		},
 		"category": "bracelets",
-		"description": "Feel the love now more than ever.",
-		"price": 2500,
-		"currency": "USD",
+		"description": {
+			"en": "Elegant three-gold bracelet with timeless design."
+		},
+		"pricing": {
+			"price": 2500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet-1.png",
+		"featured": false,
 		"specifications": {
 			"material": "Three-gold (white, yellow, rose)",
 			"gemstone": ["N/A"],
-			"size": "16cm",
-			"weight": "15.8g",
+			"weight": {
+				"metric": { "value": 15.8, "unit": "g" },
+				"imperial": { "value": 0.56, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "16cm",
-				"width": "4mm"
+				"metric": {
+					"length": { "value": 160, "unit": "mm" },
+					"width": { "value": 4, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 6.3, "unit": "in" },
+					"width": { "value": 0.16, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -122,24 +452,114 @@
 			},
 			"madeIn": "France",
 			"tags": ["luxury", "trinity", "elegant"]
-		}
+		},
+		"variations": [
+			{
+				"id": "trinity-bracelet-s",
+				"name": {
+					"en": "Trinity Bracelet - Small"
+				},
+				"size": "S",
+				"priceModifier": 0,
+				"stock": 7,
+				"sku": "TB-005-S",
+				"weight": {
+					"metric": { "value": 14.9, "unit": "g" },
+					"imperial": { "value": 0.53, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 150, "unit": "mm" },
+						"width": { "value": 4, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 5.91, "unit": "in" },
+						"width": { "value": 0.16, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "trinity-bracelet-m",
+				"name": {
+					"en": "Trinity Bracelet - Medium"
+				},
+				"size": "M",
+				"priceModifier": 0,
+				"stock": 8,
+				"sku": "TB-005-M",
+				"weight": {
+					"metric": { "value": 15.8, "unit": "g" },
+					"imperial": { "value": 0.56, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 160, "unit": "mm" },
+						"width": { "value": 4, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 6.3, "unit": "in" },
+						"width": { "value": 0.16, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "trinity-bracelet-l",
+				"name": {
+					"en": "Trinity Bracelet - Large"
+				},
+				"size": "L",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "TB-005-L",
+				"weight": {
+					"metric": { "value": 16.7, "unit": "g" },
+					"imperial": { "value": 0.59, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 170, "unit": "mm" },
+						"width": { "value": 4, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 6.69, "unit": "in" },
+						"width": { "value": 0.16, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "panthere-bracelet",
-		"name": "Panthere Bracelet",
+		"sku": "PB-006",
+		"name": {
+			"en": "Panthere Bracelet"
+		},
 		"category": "bracelets",
-		"description": "Feel the love now more than ever.",
-		"price": 3500,
-		"currency": "USD",
+		"description": {
+			"en": "Bold bracelet inspired by the fierce elegance of a panther."
+		},
+		"pricing": {
+			"price": 3500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet-2.png",
+		"featured": false,
 		"specifications": {
 			"material": "Yellow gold",
 			"gemstone": ["Onyx", "Emerald"],
-			"size": "18cm",
-			"weight": "28.3g",
+			"weight": {
+				"metric": { "value": 28.3, "unit": "g" },
+				"imperial": { "value": 1.0, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "18cm",
-				"width": "8mm"
+				"metric": {
+					"length": { "value": 180, "unit": "mm" },
+					"width": { "value": 8, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 7.09, "unit": "in" },
+					"width": { "value": 0.31, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -147,24 +567,92 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "animal", "statement"]
-		}
+		},
+		"variations": [
+			{
+				"id": "panthere-bracelet-gold",
+				"name": {
+					"en": "Panthere Bracelet - Gold"
+				},
+				"color": "Gold",
+				"material": "Yellow gold",
+				"priceModifier": 0,
+				"stock": 7,
+				"sku": "PB-006-GLD",
+				"weight": {
+					"metric": { "value": 28.3, "unit": "g" },
+					"imperial": { "value": 1.0, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 180, "unit": "mm" },
+						"width": { "value": 8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 7.09, "unit": "in" },
+						"width": { "value": 0.31, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "panthere-bracelet-rose-gold",
+				"name": {
+					"en": "Panthere Bracelet - Rose Gold"
+				},
+				"color": "Rose Gold",
+				"material": "Rose gold",
+				"priceModifier": 300,
+				"stock": 5,
+				"sku": "PB-006-RGD",
+				"weight": {
+					"metric": { "value": 29.1, "unit": "g" },
+					"imperial": { "value": 1.03, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 180, "unit": "mm" },
+						"width": { "value": 8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 7.09, "unit": "in" },
+						"width": { "value": 0.31, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "clash-bracelet",
-		"name": "Clash Bracelet",
+		"sku": "CB-007",
+		"name": {
+			"en": "Clash Bracelet"
+		},
 		"category": "bracelets",
-		"description": "Feel the love now more than ever.",
-		"price": 7500,
-		"currency": "USD",
+		"description": {
+			"en": "Modern bracelet with bold geometric design and diamonds."
+		},
+		"pricing": {
+			"price": 7500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/bracelet-3.png",
+		"featured": true,
 		"specifications": {
 			"material": "Rose gold",
 			"gemstone": ["Diamond"],
-			"size": "17cm",
-			"weight": "45.2g",
+			"weight": {
+				"metric": { "value": 45.2, "unit": "g" },
+				"imperial": { "value": 1.59, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "17cm",
-				"width": "10mm"
+				"metric": {
+					"length": { "value": 170, "unit": "mm" },
+					"width": { "value": 10, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 6.69, "unit": "in" },
+					"width": { "value": 0.39, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -172,24 +660,90 @@
 			},
 			"madeIn": "France",
 			"tags": ["luxury", "diamond", "bold"]
-		}
+		},
+		"variations": [
+			{
+				"id": "clash-bracelet-17",
+				"name": {
+					"en": "Clash Bracelet - Size 17"
+				},
+				"size": "17",
+				"priceModifier": 0,
+				"stock": 4,
+				"sku": "CB-007-17",
+				"weight": {
+					"metric": { "value": 44.8, "unit": "g" },
+					"imperial": { "value": 1.58, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 170, "unit": "mm" },
+						"width": { "value": 10, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 6.69, "unit": "in" },
+						"width": { "value": 0.39, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "clash-bracelet-18",
+				"name": {
+					"en": "Clash Bracelet - Size 18"
+				},
+				"size": "18",
+				"priceModifier": 0,
+				"stock": 4,
+				"sku": "CB-007-18",
+				"weight": {
+					"metric": { "value": 45.9, "unit": "g" },
+					"imperial": { "value": 1.62, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 180, "unit": "mm" },
+						"width": { "value": 10, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 7.09, "unit": "in" },
+						"width": { "value": 0.39, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "agrafe-necklace",
-		"name": "Agrafe Necklace",
+		"sku": "AN-008",
+		"name": {
+			"en": "Agrafe Necklace"
+		},
 		"category": "necklaces",
-		"description": "Feel the love now more than ever.",
-		"price": 9500,
-		"currency": "USD",
+		"description": {
+			"en": "Sophisticated necklace with clasp-inspired design and diamonds."
+		},
+		"pricing": {
+			"price": 9500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace-1.png",
+		"featured": false,
 		"specifications": {
 			"material": "White gold",
 			"gemstone": ["Diamond"],
-			"size": "40cm",
-			"weight": "12.1g",
+			"weight": {
+				"metric": { "value": 12.1, "unit": "g" },
+				"imperial": { "value": 0.43, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "40cm",
-				"width": "3mm"
+				"metric": {
+					"length": { "value": 400, "unit": "mm" },
+					"width": { "value": 3, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 15.75, "unit": "in" },
+					"width": { "value": 0.12, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -197,24 +751,90 @@
 			},
 			"madeIn": "France",
 			"tags": ["luxury", "diamond", "elegant"]
-		}
+		},
+		"variations": [
+			{
+				"id": "agrafe-necklace-40cm",
+				"name": {
+					"en": "Agrafe Necklace - 40cm"
+				},
+				"size": "40cm",
+				"priceModifier": 0,
+				"stock": 9,
+				"sku": "AN-008-40",
+				"weight": {
+					"metric": { "value": 11.7, "unit": "g" },
+					"imperial": { "value": 0.41, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 400, "unit": "mm" },
+						"width": { "value": 3, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 15.75, "unit": "in" },
+						"width": { "value": 0.12, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "agrafe-necklace-42cm",
+				"name": {
+					"en": "Agrafe Necklace - 42cm"
+				},
+				"size": "42cm",
+				"priceModifier": 200,
+				"stock": 9,
+				"sku": "AN-008-42",
+				"weight": {
+					"metric": { "value": 12.1, "unit": "g" },
+					"imperial": { "value": 0.43, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 420, "unit": "mm" },
+						"width": { "value": 3, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 16.54, "unit": "in" },
+						"width": { "value": 0.12, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "amulette-necklace",
-		"name": "Amulette Necklace",
+		"sku": "AMN-009",
+		"name": {
+			"en": "Amulette Necklace"
+		},
 		"category": "necklaces",
-		"description": "Feel the love now more than ever.",
-		"price": 1500,
-		"currency": "USD",
+		"description": {
+			"en": "Delicate necklace with mother-of-pearl amulet pendant."
+		},
+		"pricing": {
+			"price": 1500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace-2.png",
+		"featured": false,
 		"specifications": {
 			"material": "Yellow gold",
 			"gemstone": ["Mother of Pearl"],
-			"size": "42cm",
-			"weight": "5.8g",
+			"weight": {
+				"metric": { "value": 5.8, "unit": "g" },
+				"imperial": { "value": 0.2, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "42cm",
-				"width": "1mm"
+				"metric": {
+					"length": { "value": 420, "unit": "mm" },
+					"width": { "value": 1, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 16.54, "unit": "in" },
+					"width": { "value": 0.04, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -222,24 +842,92 @@
 			},
 			"madeIn": "France",
 			"tags": ["luxury", "mother-of-pearl", "delicate"]
-		}
+		},
+		"variations": [
+			{
+				"id": "amulette-necklace-gold",
+				"name": {
+					"en": "Amulette Necklace - Gold"
+				},
+				"color": "Gold",
+				"material": "Yellow gold",
+				"priceModifier": 0,
+				"stock": 20,
+				"sku": "AMN-009-GLD",
+				"weight": {
+					"metric": { "value": 5.8, "unit": "g" },
+					"imperial": { "value": 0.2, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 420, "unit": "mm" },
+						"width": { "value": 1, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 16.54, "unit": "in" },
+						"width": { "value": 0.04, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "amulette-necklace-white-gold",
+				"name": {
+					"en": "Amulette Necklace - White Gold"
+				},
+				"color": "White Gold",
+				"material": "White gold",
+				"priceModifier": 100,
+				"stock": 15,
+				"sku": "AMN-009-WGD",
+				"weight": {
+					"metric": { "value": 5.8, "unit": "g" },
+					"imperial": { "value": 0.2, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 420, "unit": "mm" },
+						"width": { "value": 1, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 16.54, "unit": "in" },
+						"width": { "value": 0.04, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "cactus-necklace",
-		"name": "Cactus Necklace",
+		"sku": "CN-010",
+		"name": {
+			"en": "Cactus Necklace"
+		},
 		"category": "necklaces",
-		"description": "Feel the love now more than ever.",
-		"price": 15000,
-		"currency": "USD",
+		"description": {
+			"en": "Unique necklace inspired by nature with malachite and diamonds."
+		},
+		"pricing": {
+			"price": 15000,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/necklace-3.png",
+		"featured": true,
 		"specifications": {
 			"material": "Rose gold",
 			"gemstone": ["Malachite", "Diamond"],
-			"size": "50cm",
-			"weight": "18.7g",
+			"weight": {
+				"metric": { "value": 18.7, "unit": "g" },
+				"imperial": { "value": 0.66, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "50cm",
-				"width": "4mm"
+				"metric": {
+					"length": { "value": 500, "unit": "mm" },
+					"width": { "value": 4, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 19.69, "unit": "in" },
+					"width": { "value": 0.16, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -247,24 +935,66 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "unique", "nature"]
-		}
+		},
+		"variations": [
+			{
+				"id": "cactus-necklace-standard",
+				"name": {
+					"en": "Cactus Necklace - Standard"
+				},
+				"size": "50cm",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "CN-010-STD",
+				"weight": {
+					"metric": { "value": 18.7, "unit": "g" },
+					"imperial": { "value": 0.66, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 500, "unit": "mm" },
+						"width": { "value": 4, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 19.69, "unit": "in" },
+						"width": { "value": 0.16, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "dream-earrings-2",
-		"name": "Dream Earrings",
+		"sku": "DEP-011",
+		"name": {
+			"en": "Dream Earrings Premium"
+		},
 		"category": "earrings",
-		"description": "Feel the love now more than ever.",
-		"price": 20000,
-		"currency": "USD",
+		"description": {
+			"en": "Luxurious premium earrings with diamonds and pearls."
+		},
+		"pricing": {
+			"price": 20000,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings-1.png",
+		"featured": true,
 		"specifications": {
 			"material": "White gold",
 			"gemstone": ["Diamond", "Pearl"],
-			"size": "N/A",
-			"weight": "8.9g",
+			"weight": {
+				"metric": { "value": 8.9, "unit": "g" },
+				"imperial": { "value": 0.31, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "25mm",
-				"width": "8mm"
+				"metric": {
+					"length": { "value": 25, "unit": "mm" },
+					"width": { "value": 8, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.98, "unit": "in" },
+					"width": { "value": 0.31, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -272,24 +1002,92 @@
 			},
 			"madeIn": "France",
 			"tags": ["luxury", "diamond", "pearl"]
-		}
+		},
+		"variations": [
+			{
+				"id": "dream-earrings-2-white-gold",
+				"name": {
+					"en": "Dream Earrings Premium - White Gold"
+				},
+				"color": "White Gold",
+				"material": "White gold",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "DEP-011-WGD",
+				"weight": {
+					"metric": { "value": 8.2, "unit": "g" },
+					"imperial": { "value": 0.29, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 25, "unit": "mm" },
+						"width": { "value": 8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.98, "unit": "in" },
+						"width": { "value": 0.31, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "dream-earrings-2-platinum",
+				"name": {
+					"en": "Dream Earrings Premium - Platinum"
+				},
+				"color": "Platinum",
+				"material": "Platinum",
+				"priceModifier": 2000,
+				"stock": 5,
+				"sku": "DEP-011-PLT",
+				"weight": {
+					"metric": { "value": 12.8, "unit": "g" },
+					"imperial": { "value": 0.45, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 25, "unit": "mm" },
+						"width": { "value": 8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.98, "unit": "in" },
+						"width": { "value": 0.31, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "serpenti-earrings",
-		"name": "Serpenti Earrings",
+		"sku": "SE-012",
+		"name": {
+			"en": "Serpenti Earrings"
+		},
 		"category": "earrings",
-		"description": "Feel the love now more than ever.",
-		"price": 15000,
-		"currency": "USD",
+		"description": {
+			"en": "Serpent-inspired earrings with malachite and diamond details."
+		},
+		"pricing": {
+			"price": 15000,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings-2.png",
+		"featured": false,
 		"specifications": {
 			"material": "Rose gold",
 			"gemstone": ["Malachite", "Diamond"],
-			"size": "N/A",
-			"weight": "6.7g",
+			"weight": {
+				"metric": { "value": 6.7, "unit": "g" },
+				"imperial": { "value": 0.24, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "20mm",
-				"width": "6mm"
+				"metric": {
+					"length": { "value": 20, "unit": "mm" },
+					"width": { "value": 6, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.79, "unit": "in" },
+					"width": { "value": 0.24, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -297,24 +1095,92 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "serpent", "unique"]
-		}
+		},
+		"variations": [
+			{
+				"id": "serpenti-earrings-rose-gold",
+				"name": {
+					"en": "Serpenti Earrings - Rose Gold"
+				},
+				"color": "Rose Gold",
+				"material": "Rose gold",
+				"priceModifier": 0,
+				"stock": 4,
+				"sku": "SE-012-RGD",
+				"weight": {
+					"metric": { "value": 7.0, "unit": "g" },
+					"imperial": { "value": 0.25, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 20, "unit": "mm" },
+						"width": { "value": 6, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.79, "unit": "in" },
+						"width": { "value": 0.24, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "serpenti-earrings-yellow-gold",
+				"name": {
+					"en": "Serpenti Earrings - Yellow Gold"
+				},
+				"color": "Yellow Gold",
+				"material": "Yellow gold",
+				"priceModifier": -500,
+				"stock": 3,
+				"sku": "SE-012-YGD",
+				"weight": {
+					"metric": { "value": 6.8, "unit": "g" },
+					"imperial": { "value": 0.24, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 20, "unit": "mm" },
+						"width": { "value": 6, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.79, "unit": "in" },
+						"width": { "value": 0.24, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "bzero1-earrings",
-		"name": "B.Zero1 Earrings",
+		"sku": "BZE-013",
+		"name": {
+			"en": "B.Zero1 Earrings"
+		},
 		"category": "earrings",
-		"description": "Feel the love now more than ever.",
-		"price": 2000,
-		"currency": "USD",
+		"description": {
+			"en": "Classic minimalist earrings with modern geometric design."
+		},
+		"pricing": {
+			"price": 2000,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/earrings-3.png",
+		"featured": false,
 		"specifications": {
 			"material": "Yellow gold",
 			"gemstone": ["N/A"],
-			"size": "N/A",
-			"weight": "3.1g",
+			"weight": {
+				"metric": { "value": 3.1, "unit": "g" },
+				"imperial": { "value": 0.11, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "12mm",
-				"width": "5mm"
+				"metric": {
+					"length": { "value": 12, "unit": "mm" },
+					"width": { "value": 5, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.47, "unit": "in" },
+					"width": { "value": 0.2, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -322,24 +1188,92 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "classic", "minimalist"]
-		}
+		},
+		"variations": [
+			{
+				"id": "bzero1-earrings-yellow-gold",
+				"name": {
+					"en": "B.Zero1 Earrings - Yellow Gold"
+				},
+				"color": "Yellow Gold",
+				"material": "Yellow gold",
+				"priceModifier": 0,
+				"stock": 25,
+				"sku": "BZE-013-YGD",
+				"weight": {
+					"metric": { "value": 3.1, "unit": "g" },
+					"imperial": { "value": 0.11, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 12, "unit": "mm" },
+						"width": { "value": 5, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.47, "unit": "in" },
+						"width": { "value": 0.2, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "bzero1-earrings-white-gold",
+				"name": {
+					"en": "B.Zero1 Earrings - White Gold"
+				},
+				"color": "White Gold",
+				"material": "White gold",
+				"priceModifier": 100,
+				"stock": 15,
+				"sku": "BZE-013-WGD",
+				"weight": {
+					"metric": { "value": 3.1, "unit": "g" },
+					"imperial": { "value": 0.11, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 12, "unit": "mm" },
+						"width": { "value": 5, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.47, "unit": "in" },
+						"width": { "value": 0.2, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "serpenti-ring",
-		"name": "Serpenti Ring",
+		"sku": "SR-014",
+		"name": {
+			"en": "Serpenti Ring"
+		},
 		"category": "rings",
-		"description": "Feel the love now more than ever.",
-		"price": 1500,
-		"currency": "USD",
+		"description": {
+			"en": "Elegant serpent ring with malachite stone and unique design."
+		},
+		"pricing": {
+			"price": 1500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring-1.png",
+		"featured": false,
 		"specifications": {
 			"material": "Rose gold",
 			"gemstone": ["Malachite"],
-			"size": "54",
-			"weight": "4.8g",
+			"weight": {
+				"metric": { "value": 4.8, "unit": "g" },
+				"imperial": { "value": 0.17, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "12mm",
-				"width": "10mm"
+				"metric": {
+					"length": { "value": 12, "unit": "mm" },
+					"width": { "value": 10, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.47, "unit": "in" },
+					"width": { "value": 0.39, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -347,24 +1281,114 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "serpent", "unique"]
-		}
+		},
+		"variations": [
+			{
+				"id": "serpenti-ring-52",
+				"name": {
+					"en": "Serpenti Ring - Size 52"
+				},
+				"size": "52",
+				"priceModifier": 0,
+				"stock": 7,
+				"sku": "SR-014-52",
+				"weight": {
+					"metric": { "value": 4.7, "unit": "g" },
+					"imperial": { "value": 0.17, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 11.8, "unit": "mm" },
+						"width": { "value": 9.8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.46, "unit": "in" },
+						"width": { "value": 0.39, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "serpenti-ring-54",
+				"name": {
+					"en": "Serpenti Ring - Size 54"
+				},
+				"size": "54",
+				"priceModifier": 0,
+				"stock": 8,
+				"sku": "SR-014-54",
+				"weight": {
+					"metric": { "value": 4.8, "unit": "g" },
+					"imperial": { "value": 0.17, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 12.0, "unit": "mm" },
+						"width": { "value": 10.0, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.47, "unit": "in" },
+						"width": { "value": 0.39, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "serpenti-ring-56",
+				"name": {
+					"en": "Serpenti Ring - Size 56"
+				},
+				"size": "56",
+				"priceModifier": 0,
+				"stock": 7,
+				"sku": "SR-014-56",
+				"weight": {
+					"metric": { "value": 4.9, "unit": "g" },
+					"imperial": { "value": 0.17, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 12.2, "unit": "mm" },
+						"width": { "value": 10.2, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.48, "unit": "in" },
+						"width": { "value": 0.4, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "bzero1-ring",
-		"name": "B.Zero1 Ring",
+		"sku": "BZR-015",
+		"name": {
+			"en": "B.Zero1 Ring"
+		},
 		"category": "rings",
-		"description": "Feel the love now more than ever.",
-		"price": 1000,
-		"currency": "USD",
+		"description": {
+			"en": "Classic minimalist ring with timeless geometric design."
+		},
+		"pricing": {
+			"price": 1000,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring-2.png",
+		"featured": false,
 		"specifications": {
 			"material": "White gold",
 			"gemstone": ["N/A"],
-			"size": "50",
-			"weight": "3.2g",
+			"weight": {
+				"metric": { "value": 3.2, "unit": "g" },
+				"imperial": { "value": 0.11, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "8mm",
-				"width": "8mm"
+				"metric": {
+					"length": { "value": 8, "unit": "mm" },
+					"width": { "value": 8, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.31, "unit": "in" },
+					"width": { "value": 0.31, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -372,24 +1396,114 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "classic", "minimalist"]
-		}
+		},
+		"variations": [
+			{
+				"id": "bzero1-ring-50",
+				"name": {
+					"en": "B.Zero1 Ring - Size 50"
+				},
+				"size": "50",
+				"priceModifier": 0,
+				"stock": 15,
+				"sku": "BZR-015-50",
+				"weight": {
+					"metric": { "value": 3.1, "unit": "g" },
+					"imperial": { "value": 0.11, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 7.8, "unit": "mm" },
+						"width": { "value": 7.8, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.31, "unit": "in" },
+						"width": { "value": 0.31, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "bzero1-ring-52",
+				"name": {
+					"en": "B.Zero1 Ring - Size 52"
+				},
+				"size": "52",
+				"priceModifier": 0,
+				"stock": 20,
+				"sku": "BZR-015-52",
+				"weight": {
+					"metric": { "value": 3.2, "unit": "g" },
+					"imperial": { "value": 0.11, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 8.0, "unit": "mm" },
+						"width": { "value": 8.0, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.31, "unit": "in" },
+						"width": { "value": 0.31, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "bzero1-ring-54",
+				"name": {
+					"en": "B.Zero1 Ring - Size 54"
+				},
+				"size": "54",
+				"priceModifier": 0,
+				"stock": 20,
+				"sku": "BZR-015-54",
+				"weight": {
+					"metric": { "value": 3.3, "unit": "g" },
+					"imperial": { "value": 0.12, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 8.2, "unit": "mm" },
+						"width": { "value": 8.2, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.32, "unit": "in" },
+						"width": { "value": 0.32, "unit": "in" }
+					}
+				}
+			}
+		]
 	},
 	{
 		"id": "bvlgari-ring",
-		"name": "Bvlgari Ring",
+		"sku": "BR-016",
+		"name": {
+			"en": "Bvlgari Ring"
+		},
 		"category": "rings",
-		"description": "Feel the love now more than ever.",
-		"price": 3500,
-		"currency": "USD",
+		"description": {
+			"en": "Luxury branded ring with distinctive onyx stone and bold design."
+		},
+		"pricing": {
+			"price": 3500,
+			"currency": "USD"
+		},
 		"imageUrl": "https://raw.githubusercontent.com/MariusSMA/vue-jewelry-website/refs/heads/main/src/assets/images/ring-3.png",
+		"featured": false,
 		"specifications": {
 			"material": "Yellow gold",
 			"gemstone": ["Onyx"],
-			"size": "56",
-			"weight": "5.5g",
+			"weight": {
+				"metric": { "value": 5.5, "unit": "g" },
+				"imperial": { "value": 0.19, "unit": "oz" }
+			},
 			"dimensions": {
-				"length": "14mm",
-				"width": "12mm"
+				"metric": {
+					"length": { "value": 14, "unit": "mm" },
+					"width": { "value": 12, "unit": "mm" }
+				},
+				"imperial": {
+					"length": { "value": 0.55, "unit": "in" },
+					"width": { "value": 0.47, "unit": "in" }
+				}
 			},
 			"availability": {
 				"inStock": true,
@@ -397,6 +1511,80 @@
 			},
 			"madeIn": "Italy",
 			"tags": ["luxury", "brand", "statement"]
-		}
+		},
+		"variations": [
+			{
+				"id": "bvlgari-ring-54",
+				"name": {
+					"en": "Bvlgari Ring - Size 54"
+				},
+				"size": "54",
+				"priceModifier": 0,
+				"stock": 4,
+				"sku": "BR-016-54",
+				"weight": {
+					"metric": { "value": 9.1, "unit": "g" },
+					"imperial": { "value": 0.32, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 15.0, "unit": "mm" },
+						"width": { "value": 12.0, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.59, "unit": "in" },
+						"width": { "value": 0.47, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "bvlgari-ring-56",
+				"name": {
+					"en": "Bvlgari Ring - Size 56"
+				},
+				"size": "56",
+				"priceModifier": 0,
+				"stock": 5,
+				"sku": "BR-016-56",
+				"weight": {
+					"metric": { "value": 9.3, "unit": "g" },
+					"imperial": { "value": 0.33, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 15.2, "unit": "mm" },
+						"width": { "value": 12.2, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.6, "unit": "in" },
+						"width": { "value": 0.48, "unit": "in" }
+					}
+				}
+			},
+			{
+				"id": "bvlgari-ring-58",
+				"name": {
+					"en": "Bvlgari Ring - Size 58"
+				},
+				"size": "58",
+				"priceModifier": 0,
+				"stock": 4,
+				"sku": "BR-016-58",
+				"weight": {
+					"metric": { "value": 9.5, "unit": "g" },
+					"imperial": { "value": 0.34, "unit": "oz" }
+				},
+				"dimensions": {
+					"metric": {
+						"length": { "value": 15.4, "unit": "mm" },
+						"width": { "value": 12.4, "unit": "mm" }
+					},
+					"imperial": {
+						"length": { "value": 0.61, "unit": "in" },
+						"width": { "value": 0.49, "unit": "in" }
+					}
+				}
+			}
+		]
 	}
 ]

@@ -3,7 +3,6 @@
 		<div class="container">
 			<h1>Admin Dashboard</h1>
 
-			<!-- Only show admin content if user is admin -->
 			<div v-if="isAdmin" class="admin-content">
 				<div class="admin-section">
 					<h2>Product Management</h2>
@@ -49,7 +48,6 @@
 				</div>
 			</div>
 
-			<!-- Show message if user is not admin -->
 			<div v-else class="no-admin">
 				<p>You don't have admin privileges to view this page.</p>
 				<router-link to="/profile" class="back-link">
@@ -124,6 +122,7 @@ h1 {
 	color: #333;
 	text-align: center;
 	margin-bottom: 2rem;
+	margin-top: 8rem;
 }
 
 .admin-content {
